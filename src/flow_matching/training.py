@@ -21,9 +21,10 @@ def train_flow(
     sample_data,
     *,
     path: LinearConditionalPath | None = None,
-    config: TrainConfig = TrainConfig(),
+    config: TrainConfig | None = None,
     device: str = "cpu",
 ) -> list[float]:
+    config = config or TrainConfig()
     if config.steps <= 0 or config.batch_size <= 0:
         raise ValueError("steps and batch_size must be positive")
     torch.manual_seed(config.seed)
