@@ -1,0 +1,73 @@
+{
+  "experiment": "eight_gaussians_solver_multiseed",
+  "training_steps": 2000,
+  "evaluation_samples": 1000,
+  "matched_compute": {
+    "euler_nfe": 50,
+    "rk4_nfe": 48
+  },
+  "runs": [
+    {
+      "seed": 0,
+      "mean_last_100_loss": 3.7277793788909914,
+      "euler_mmd2": 0.0005630254745483398,
+      "rk4_mmd2": 0.0004513263702392578,
+      "rk4_minus_euler": -0.00011169910430908203
+    },
+    {
+      "seed": 1,
+      "mean_last_100_loss": 3.7568442320823667,
+      "euler_mmd2": 0.000605463981628418,
+      "rk4_mmd2": 0.00034105777740478516,
+      "rk4_minus_euler": -0.0002644062042236328
+    },
+    {
+      "seed": 2,
+      "mean_last_100_loss": 3.716197533607483,
+      "euler_mmd2": 0.002051711082458496,
+      "rk4_mmd2": 0.0022639036178588867,
+      "rk4_minus_euler": 0.00021219253540039062
+    },
+    {
+      "seed": 3,
+      "mean_last_100_loss": 3.6717520928382874,
+      "euler_mmd2": 0.001572251319885254,
+      "rk4_mmd2": 0.0015611648559570312,
+      "rk4_minus_euler": -1.1086463928222656e-05
+    },
+    {
+      "seed": 4,
+      "mean_last_100_loss": 3.712236771583557,
+      "euler_mmd2": 0.001194000244140625,
+      "rk4_mmd2": 0.0008779764175415039,
+      "rk4_minus_euler": -0.0003160238265991211
+    }
+  ],
+  "summary": {
+    "euler_mmd2": {
+      "mean": 0.0011972904205322266,
+      "std": 0.0006370227084493043,
+      "min": 0.0005630254745483398,
+      "max": 0.002051711082458496
+    },
+    "rk4_mmd2": {
+      "mean": 0.0010990858078002929,
+      "std": 0.0008083015717618069,
+      "min": 0.00034105777740478516,
+      "max": 0.0022639036178588867
+    },
+    "paired_rk4_minus_euler": {
+      "mean": -9.820461273193359e-05,
+      "std": 0.00021165197947732765,
+      "min": -0.0003160238265991211,
+      "max": 0.00021219253540039062
+    },
+    "paired_rk4_minus_euler_ci": {
+      "mean": -9.820461273193359e-05,
+      "ci_low": -0.00025451183319091797,
+      "ci_high": 7.221698760986328e-05,
+      "confidence": 0.95
+    }
+  },
+  "warning": "Synthetic 2-D study; lower MMD^2 is better. Interpret solver differences across seeds, not from one run."
+}

@@ -1,0 +1,105 @@
+{
+  "experiment": "matched_budget_probability_path_ablation",
+  "training_steps_per_path": 2000,
+  "evaluation_samples": 1000,
+  "mmd_bandwidth": "median squared target distance; shared across methods within seed",
+  "solver": {
+    "name": "rk4",
+    "steps": 12,
+    "nfe": 48
+  },
+  "runs": [
+    {
+      "seed": 0,
+      "bandwidth": 32.166015625,
+      "linear": {
+        "mmd2": 0.0023952722549438477,
+        "mean_last_100_loss": 3.7277793788909914
+      },
+      "variance_preserving_trigonometric": {
+        "mmd2": 0.0014939308166503906,
+        "mean_last_100_loss": 5.834147253036499
+      },
+      "vp_minus_linear_mmd2": -0.000901341438293457
+    },
+    {
+      "seed": 1,
+      "bandwidth": 31.963685989379883,
+      "linear": {
+        "mmd2": 0.0010962486267089844,
+        "mean_last_100_loss": 3.7568442320823667
+      },
+      "variance_preserving_trigonometric": {
+        "mmd2": 0.0014210939407348633,
+        "mean_last_100_loss": 5.903999333381653
+      },
+      "vp_minus_linear_mmd2": 0.0003248453140258789
+    },
+    {
+      "seed": 2,
+      "bandwidth": 32.08949279785156,
+      "linear": {
+        "mmd2": 0.00024259090423583984,
+        "mean_last_100_loss": 3.716197533607483
+      },
+      "variance_preserving_trigonometric": {
+        "mmd2": 0.0005788803100585938,
+        "mean_last_100_loss": 5.834713649749756
+      },
+      "vp_minus_linear_mmd2": 0.0003362894058227539
+    },
+    {
+      "seed": 3,
+      "bandwidth": 32.25566101074219,
+      "linear": {
+        "mmd2": 0.0012526512145996094,
+        "mean_last_100_loss": 3.6717520928382874
+      },
+      "variance_preserving_trigonometric": {
+        "mmd2": 0.0005197525024414062,
+        "mean_last_100_loss": 5.764614419937134
+      },
+      "vp_minus_linear_mmd2": -0.0007328987121582031
+    },
+    {
+      "seed": 4,
+      "bandwidth": 32.04865646362305,
+      "linear": {
+        "mmd2": 0.0014246702194213867,
+        "mean_last_100_loss": 3.712236771583557
+      },
+      "variance_preserving_trigonometric": {
+        "mmd2": 0.0027005672454833984,
+        "mean_last_100_loss": 5.822325758934021
+      },
+      "vp_minus_linear_mmd2": 0.0012758970260620117
+    }
+  ],
+  "summary": {
+    "linear_mmd2": {
+      "mean": 0.0012822866439819336,
+      "std": 0.0007706272910030648,
+      "min": 0.00024259090423583984,
+      "max": 0.0023952722549438477
+    },
+    "variance_preserving_mmd2": {
+      "mean": 0.0013428449630737305,
+      "std": 0.0008850823158913005,
+      "min": 0.0005197525024414062,
+      "max": 0.0027005672454833984
+    },
+    "paired_vp_minus_linear_mmd2": {
+      "mean": 6.0558319091796875e-05,
+      "std": 0.0008913120419133567,
+      "min": -0.000901341438293457,
+      "max": 0.0012758970260620117
+    },
+    "paired_vp_minus_linear_mmd2_ci": {
+      "mean": 6.0558319091796875e-05,
+      "ci_low": -0.0006201267242431641,
+      "ci_high": 0.0007098436355590821,
+      "confidence": 0.95
+    }
+  },
+  "interpretation": "Negative paired differences favor the variance-preserving path; positive differences favor the linear path. Conclusions should use paired behavior across seeds rather than a single run."
+}

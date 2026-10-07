@@ -12,8 +12,8 @@ from flow_matching.metrics import squared_mmd_rbf
 from flow_matching.models import VectorFieldMLP
 from flow_matching.paths import LinearConditionalPath, TrigonometricConditionalPath
 from flow_matching.solvers import rk4_integrate
-from flow_matching.training import TrainConfig, train_flow
 from flow_matching.statistics import paired_bootstrap_ci
+from flow_matching.training import TrainConfig, train_flow
 
 
 def summary(values: list[float]) -> dict[str, float]:
@@ -42,7 +42,9 @@ def main() -> None:
         generator = torch.Generator().manual_seed(seed + 20_000)
         base = torch.randn((args.samples, 2), generator=generator)
         target = sample_eight_gaussians(args.samples, generator=generator)
-        row = {"seed": seed}
+        distances = torch.pdist(target).square()
+        bandwidth = float(distances[distances > 0].median())
+        row = {"seed": seed, "bandwidth": bandwidth}
         for name, path in paths.items():
             torch.manual_seed(seed)
             model = VectorFieldMLP()
@@ -55,7 +57,7 @@ def main() -> None:
             with torch.no_grad():
                 generated = rk4_integrate(model, base, steps=12)
             row[name] = {
-                "mmd2": float(squared_mmd_rbf(generated, target)),
+                "mmd2": float(squared_mmd_rbf(generated, target, bandwidth=bandwidth)),
                 "mean_last_100_loss": sum(losses[-100:]) / min(100, len(losses)),
             }
         row["vp_minus_linear_mmd2"] = (
@@ -70,6 +72,7 @@ def main() -> None:
         "experiment": "matched_budget_probability_path_ablation",
         "training_steps_per_path": args.steps,
         "evaluation_samples": args.samples,
+        "mmd_bandwidth": "median squared target distance; shared across methods within seed",
         "solver": {"name": "rk4", "steps": 12, "nfe": 48},
         "runs": runs,
         "summary": {

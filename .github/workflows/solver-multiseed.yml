@@ -7,18 +7,24 @@ jobs:
   study:
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    env:
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
+      - run: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
       - run: python -m pip install -e .
       - name: Run five-seed matched-NFE study
         run: python scripts/run_multiseed_solver_study.py
+      - name: Run five-seed path ablation
+        run: python scripts/run_path_ablation.py
       - name: Print result
         run: cat results/eight_gaussians_solver_multiseed.json
       - uses: actions/upload-artifact@v4
         with:
           name: flow-matching-solver-multiseed
-          path: results/eight_gaussians_solver_multiseed.json
+          path: results/*.json

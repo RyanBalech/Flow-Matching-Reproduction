@@ -1,0 +1,79 @@
+{
+  "experiment": "eight_gaussians_solver_multiseed",
+  "training_steps": 2000,
+  "evaluation_samples": 1000,
+  "mmd_bandwidth": "median squared target distance; shared across methods within seed",
+  "matched_compute": {
+    "euler_nfe": 48,
+    "rk4_nfe": 48
+  },
+  "runs": [
+    {
+      "seed": 0,
+      "bandwidth": 32.01774597167969,
+      "mean_last_100_loss": 3.7277793788909914,
+      "euler_mmd2": 0.00048792362213134766,
+      "rk4_mmd2": 0.00045478343963623047,
+      "rk4_minus_euler": -3.314018249511719e-05
+    },
+    {
+      "seed": 1,
+      "bandwidth": 32.23119354248047,
+      "mean_last_100_loss": 3.7568442320823667,
+      "euler_mmd2": 0.00035381317138671875,
+      "rk4_mmd2": 0.0003414154052734375,
+      "rk4_minus_euler": -1.239776611328125e-05
+    },
+    {
+      "seed": 2,
+      "bandwidth": 32.17264175415039,
+      "mean_last_100_loss": 3.716197533607483,
+      "euler_mmd2": 0.0018094778060913086,
+      "rk4_mmd2": 0.0022635459899902344,
+      "rk4_minus_euler": 0.0004540681838989258
+    },
+    {
+      "seed": 3,
+      "bandwidth": 32.18954849243164,
+      "mean_last_100_loss": 3.6717520928382874,
+      "euler_mmd2": 0.001318216323852539,
+      "rk4_mmd2": 0.0015592575073242188,
+      "rk4_minus_euler": 0.0002410411834716797
+    },
+    {
+      "seed": 4,
+      "bandwidth": 32.26101303100586,
+      "mean_last_100_loss": 3.712236771583557,
+      "euler_mmd2": 0.000766754150390625,
+      "rk4_mmd2": 0.0008779764175415039,
+      "rk4_minus_euler": 0.0001112222671508789
+    }
+  ],
+  "summary": {
+    "euler_mmd2": {
+      "mean": 0.0009472370147705078,
+      "std": 0.0006076140931696187,
+      "min": 0.00035381317138671875,
+      "max": 0.0018094778060913086
+    },
+    "rk4_mmd2": {
+      "mean": 0.001099395751953125,
+      "std": 0.0008071252027364342,
+      "min": 0.0003414154052734375,
+      "max": 0.0022635459899902344
+    },
+    "paired_rk4_minus_euler": {
+      "mean": 0.0001521587371826172,
+      "std": 0.00020133288992626338,
+      "min": -3.314018249511719e-05,
+      "max": 0.0004540681838989258
+    },
+    "paired_rk4_minus_euler_ci": {
+      "mean": 0.0001521587371826172,
+      "ci_low": 4.029273986816406e-06,
+      "ci_high": 0.00031816959381103516,
+      "confidence": 0.95
+    }
+  },
+  "warning": "Synthetic 2-D study; lower MMD^2 is better. Interpret solver differences across seeds, not from one run."
+}

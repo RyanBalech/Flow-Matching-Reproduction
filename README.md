@@ -26,15 +26,15 @@ At generation time, samples are drawn from the base distribution and transported
 - [x] Euler and RK4 ODE solvers
 - [x] Reproducible synthetic distributions
 - [x] Unit tests and CI
-- [ ] Reproduce 2-D transport experiments
+- [x] Controlled 2-D transport experiments
 - [x] Linear vs variance-preserving path ablation pipeline
 - [x] Matched-NFE Euler vs RK4 ablation pipeline
 - [x] Multi-seed paired comparison pipelines
-- [ ] Research report with figures and failure analysis
+- [x] Initial research report with paired-seed figures and limitations
 
 ## Reproducibility
 
-Experiments use explicit seeds and save configuration with metrics. Headline comparisons will use multiple seeds and matched training budgets. Results are not added to this README until produced by reproducible runs.
+Experiments use explicit seeds and save configuration with metrics. Headline comparisons will use multiple seeds and matched training budgets. Measured results and raw artifacts are available in [docs/RESULTS.md](docs/RESULTS.md).
 
 ## References
 
@@ -47,6 +47,6 @@ Experiments use explicit seeds and save configuration with metrics. Headline com
 Two controlled studies are now implemented:
 
 - **Probability path:** straight linear transport versus a variance-preserving trigonometric path, with the same architecture, optimizer, training steps, seeds, evaluation samples, and RK4 inference budget.
-- **ODE solver:** Euler at 50 function evaluations versus RK4 at 48 function evaluations, evaluated on the same trained model and paired samples across five seeds.
+- **ODE solver:** Euler and RK4 at exactly 48 function evaluations each, evaluated on the same trained model and paired samples across five seeds.
 
-Both studies write per-seed metrics and paired differences to JSON. Numerical conclusions remain intentionally separate from implementation status until the reproducible runs complete.
+Both studies write per-seed metrics and paired differences to JSON. The five-seed equal-budget solver study favors Euler on this synthetic target; the path comparison remains inconclusive. See [the results report](docs/RESULTS.md) for confidence intervals and limitations.
