@@ -1,0 +1,495 @@
+{
+  "experiment": "paired_nfe_sweep",
+  "training_steps": 2000,
+  "samples_per_seed": 1000,
+  "nfe_budgets": [
+    16,
+    32,
+    48,
+    96,
+    192,
+    384
+  ],
+  "reference_nfe": 8192,
+  "reference_check_nfe": 16384,
+  "bandwidth_rule": "median positive target-only squared distance, shared within seed",
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.14.1+cpu",
+    "threads": 1
+  },
+  "source_commit": "f32a5251c928ea6f07c4393fb4bd93ec50fc1317",
+  "source_dirty": true,
+  "runs": [
+    {
+      "seed": 0,
+      "bandwidth": 32.01774597167969,
+      "model_state_sha256": "bbec7f836792b7bf4abd05fcda873483cb0f165dfa83db74ef68312ad13abbf0",
+      "mean_last_100_loss": 3.7277793788909914,
+      "reference_mmd2": 0.0005011558532714844,
+      "reference_doubling_endpoint_mse": 1.2053076314799682e-09,
+      "measurements": [
+        {
+          "solver": "euler",
+          "nfe": 16,
+          "mmd2": 0.0005173683166503906,
+          "endpoint_mse_to_reference": 0.02890855446457863,
+          "integration_seconds": 0.018469213999878775
+        },
+        {
+          "solver": "rk4",
+          "nfe": 16,
+          "mmd2": 0.0009932518005371094,
+          "endpoint_mse_to_reference": 0.06804008781909943,
+          "integration_seconds": 0.018408714000088366
+        },
+        {
+          "solver": "euler",
+          "nfe": 32,
+          "mmd2": 0.0005412101745605469,
+          "endpoint_mse_to_reference": 0.016560889780521393,
+          "integration_seconds": 0.036798750999878393
+        },
+        {
+          "solver": "rk4",
+          "nfe": 32,
+          "mmd2": 0.00047409534454345703,
+          "endpoint_mse_to_reference": 0.05360599607229233,
+          "integration_seconds": 0.035891498999944815
+        },
+        {
+          "solver": "euler",
+          "nfe": 48,
+          "mmd2": 0.00048792362213134766,
+          "endpoint_mse_to_reference": 0.0008929555187933147,
+          "integration_seconds": 0.05577347300004476
+        },
+        {
+          "solver": "rk4",
+          "nfe": 48,
+          "mmd2": 0.00045478343963623047,
+          "endpoint_mse_to_reference": 0.0075925495475530624,
+          "integration_seconds": 0.056010173000004215
+        },
+        {
+          "solver": "euler",
+          "nfe": 96,
+          "mmd2": 0.0004762411117553711,
+          "endpoint_mse_to_reference": 0.00048554668319411576,
+          "integration_seconds": 0.11054681999985405
+        },
+        {
+          "solver": "rk4",
+          "nfe": 96,
+          "mmd2": 0.0005085468292236328,
+          "endpoint_mse_to_reference": 0.0005365455290302634,
+          "integration_seconds": 0.10667589600006977
+        },
+        {
+          "solver": "euler",
+          "nfe": 192,
+          "mmd2": 0.0004926919937133789,
+          "endpoint_mse_to_reference": 0.00021679175551980734,
+          "integration_seconds": 0.20988082799999574
+        },
+        {
+          "solver": "rk4",
+          "nfe": 192,
+          "mmd2": 0.00048100948333740234,
+          "endpoint_mse_to_reference": 0.00042899823165498674,
+          "integration_seconds": 0.21330933700005517
+        },
+        {
+          "solver": "euler",
+          "nfe": 384,
+          "mmd2": 0.0004985332489013672,
+          "endpoint_mse_to_reference": 3.941491013392806e-05,
+          "integration_seconds": 0.43024719999993977
+        },
+        {
+          "solver": "rk4",
+          "nfe": 384,
+          "mmd2": 0.0005027055740356445,
+          "endpoint_mse_to_reference": 0.00023207234335131943,
+          "integration_seconds": 0.43280421999998
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "bandwidth": 32.23119354248047,
+      "model_state_sha256": "b0d1c6bb08e0b2ec0f1861234016d818621902a6c76d5e93d8bff446198c3829",
+      "mean_last_100_loss": 3.7568442320823667,
+      "reference_mmd2": 0.0003434419631958008,
+      "reference_doubling_endpoint_mse": 6.812796854438474e-11,
+      "measurements": [
+        {
+          "solver": "euler",
+          "nfe": 16,
+          "mmd2": 0.00037932395935058594,
+          "endpoint_mse_to_reference": 0.033619146794080734,
+          "integration_seconds": 0.023111218999929406
+        },
+        {
+          "solver": "rk4",
+          "nfe": 16,
+          "mmd2": 0.0004106760025024414,
+          "endpoint_mse_to_reference": 0.13076119124889374,
+          "integration_seconds": 0.01857763799989698
+        },
+        {
+          "solver": "euler",
+          "nfe": 32,
+          "mmd2": 0.00042724609375,
+          "endpoint_mse_to_reference": 0.003716754959896207,
+          "integration_seconds": 0.03620123499990768
+        },
+        {
+          "solver": "rk4",
+          "nfe": 32,
+          "mmd2": 0.0002340078353881836,
+          "endpoint_mse_to_reference": 0.02172926813364029,
+          "integration_seconds": 0.03744821099985529
+        },
+        {
+          "solver": "euler",
+          "nfe": 48,
+          "mmd2": 0.00035381317138671875,
+          "endpoint_mse_to_reference": 0.0007678334368392825,
+          "integration_seconds": 0.05470428300009189
+        },
+        {
+          "solver": "rk4",
+          "nfe": 48,
+          "mmd2": 0.0003414154052734375,
+          "endpoint_mse_to_reference": 0.007797813508659601,
+          "integration_seconds": 0.05477606899989951
+        },
+        {
+          "solver": "euler",
+          "nfe": 96,
+          "mmd2": 0.00034749507904052734,
+          "endpoint_mse_to_reference": 0.0001567667641211301,
+          "integration_seconds": 0.11407642700010001
+        },
+        {
+          "solver": "rk4",
+          "nfe": 96,
+          "mmd2": 0.0003361701965332031,
+          "endpoint_mse_to_reference": 0.0005843076505698264,
+          "integration_seconds": 0.1125547239998923
+        },
+        {
+          "solver": "euler",
+          "nfe": 192,
+          "mmd2": 0.0003355741500854492,
+          "endpoint_mse_to_reference": 8.736920426599681e-05,
+          "integration_seconds": 0.22338192999995954
+        },
+        {
+          "solver": "rk4",
+          "nfe": 192,
+          "mmd2": 0.00034368038177490234,
+          "endpoint_mse_to_reference": 0.00014201435260474682,
+          "integration_seconds": 0.2179151279999587
+        },
+        {
+          "solver": "euler",
+          "nfe": 384,
+          "mmd2": 0.0003434419631958008,
+          "endpoint_mse_to_reference": 1.3850840332452208e-05,
+          "integration_seconds": 0.4665459780001129
+        },
+        {
+          "solver": "rk4",
+          "nfe": 384,
+          "mmd2": 0.0003299713134765625,
+          "endpoint_mse_to_reference": 9.463592868996784e-05,
+          "integration_seconds": 0.4431206070000826
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "bandwidth": 32.17264175415039,
+      "model_state_sha256": "026ff1a60b44d3c5bd9c30889f3492cd93f87eab3a28a6ab48b38fadf937e6fe",
+      "mean_last_100_loss": 3.716197533607483,
+      "reference_mmd2": 0.0018154382705688477,
+      "reference_doubling_endpoint_mse": 1.3368688100978687e-10,
+      "measurements": [
+        {
+          "solver": "euler",
+          "nfe": 16,
+          "mmd2": 0.0023915767669677734,
+          "endpoint_mse_to_reference": 0.041765931993722916,
+          "integration_seconds": 0.018581660000108968
+        },
+        {
+          "solver": "rk4",
+          "nfe": 16,
+          "mmd2": 0.00330352783203125,
+          "endpoint_mse_to_reference": 0.12588366866111755,
+          "integration_seconds": 0.024903602999984287
+        },
+        {
+          "solver": "euler",
+          "nfe": 32,
+          "mmd2": 0.0018793344497680664,
+          "endpoint_mse_to_reference": 0.004155860748142004,
+          "integration_seconds": 0.05206165999993573
+        },
+        {
+          "solver": "rk4",
+          "nfe": 32,
+          "mmd2": 0.0022913217544555664,
+          "endpoint_mse_to_reference": 0.060954947024583817,
+          "integration_seconds": 0.047770991999868784
+        },
+        {
+          "solver": "euler",
+          "nfe": 48,
+          "mmd2": 0.0018094778060913086,
+          "endpoint_mse_to_reference": 0.0014410966541618109,
+          "integration_seconds": 0.07039944899997863
+        },
+        {
+          "solver": "rk4",
+          "nfe": 48,
+          "mmd2": 0.0022635459899902344,
+          "endpoint_mse_to_reference": 0.015958299860358238,
+          "integration_seconds": 0.06450803400002769
+        },
+        {
+          "solver": "euler",
+          "nfe": 96,
+          "mmd2": 0.0017861127853393555,
+          "endpoint_mse_to_reference": 0.0005265012732706964,
+          "integration_seconds": 0.12371927099979985
+        },
+        {
+          "solver": "rk4",
+          "nfe": 96,
+          "mmd2": 0.0017015933990478516,
+          "endpoint_mse_to_reference": 0.0014985084999352694,
+          "integration_seconds": 0.1343170380000629
+        },
+        {
+          "solver": "euler",
+          "nfe": 192,
+          "mmd2": 0.0017812252044677734,
+          "endpoint_mse_to_reference": 0.00014508354070130736,
+          "integration_seconds": 0.2770502480000232
+        },
+        {
+          "solver": "rk4",
+          "nfe": 192,
+          "mmd2": 0.0017791986465454102,
+          "endpoint_mse_to_reference": 0.00035345982178114355,
+          "integration_seconds": 0.25962586600007853
+        },
+        {
+          "solver": "euler",
+          "nfe": 384,
+          "mmd2": 0.0018053054809570312,
+          "endpoint_mse_to_reference": 2.0382558432174847e-05,
+          "integration_seconds": 0.5625250000000506
+        },
+        {
+          "solver": "rk4",
+          "nfe": 384,
+          "mmd2": 0.001779794692993164,
+          "endpoint_mse_to_reference": 0.0002439870295347646,
+          "integration_seconds": 0.4824900369999341
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "bandwidth": 32.18954849243164,
+      "model_state_sha256": "af26bbfbe104e196c34ded6e244cd3c7a2720278600d0b0de75551631f9c5224",
+      "mean_last_100_loss": 3.6717520928382874,
+      "reference_mmd2": 0.0013161897659301758,
+      "reference_doubling_endpoint_mse": 1.43159339938137e-09,
+      "measurements": [
+        {
+          "solver": "euler",
+          "nfe": 16,
+          "mmd2": 0.0015851259231567383,
+          "endpoint_mse_to_reference": 0.021258777007460594,
+          "integration_seconds": 0.019349965999936103
+        },
+        {
+          "solver": "rk4",
+          "nfe": 16,
+          "mmd2": 0.0024334192276000977,
+          "endpoint_mse_to_reference": 0.11545571684837341,
+          "integration_seconds": 0.017645244000050297
+        },
+        {
+          "solver": "euler",
+          "nfe": 32,
+          "mmd2": 0.0010927915573120117,
+          "endpoint_mse_to_reference": 0.02065799944102764,
+          "integration_seconds": 0.03927004499996656
+        },
+        {
+          "solver": "rk4",
+          "nfe": 32,
+          "mmd2": 0.0013450384140014648,
+          "endpoint_mse_to_reference": 0.022210530936717987,
+          "integration_seconds": 0.0354391470000337
+        },
+        {
+          "solver": "euler",
+          "nfe": 48,
+          "mmd2": 0.001318216323852539,
+          "endpoint_mse_to_reference": 0.0009701552335172892,
+          "integration_seconds": 0.053964474000167684
+        },
+        {
+          "solver": "rk4",
+          "nfe": 48,
+          "mmd2": 0.0015592575073242188,
+          "endpoint_mse_to_reference": 0.008078088983893394,
+          "integration_seconds": 0.05457203200012373
+        },
+        {
+          "solver": "euler",
+          "nfe": 96,
+          "mmd2": 0.0013093948364257812,
+          "endpoint_mse_to_reference": 0.00043137578177265823,
+          "integration_seconds": 0.11005006599998524
+        },
+        {
+          "solver": "rk4",
+          "nfe": 96,
+          "mmd2": 0.001260519027709961,
+          "endpoint_mse_to_reference": 0.0021012048237025738,
+          "integration_seconds": 0.1091451469999356
+        },
+        {
+          "solver": "euler",
+          "nfe": 192,
+          "mmd2": 0.001328110694885254,
+          "endpoint_mse_to_reference": 0.0001709249336272478,
+          "integration_seconds": 0.20964453400006278
+        },
+        {
+          "solver": "rk4",
+          "nfe": 192,
+          "mmd2": 0.0013054609298706055,
+          "endpoint_mse_to_reference": 0.0005833458853885531,
+          "integration_seconds": 0.21228394900003877
+        },
+        {
+          "solver": "euler",
+          "nfe": 384,
+          "mmd2": 0.0013169050216674805,
+          "endpoint_mse_to_reference": 1.2148050700488966e-05,
+          "integration_seconds": 0.43183015099998556
+        },
+        {
+          "solver": "rk4",
+          "nfe": 384,
+          "mmd2": 0.0013344287872314453,
+          "endpoint_mse_to_reference": 0.0002829757868312299,
+          "integration_seconds": 0.43424277099984465
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "bandwidth": 32.26101303100586,
+      "model_state_sha256": "98654f6dcb3bffa6f4e18e2b5243ccf9f6aca1d1d6c61feafb28686dd05e7b97",
+      "mean_last_100_loss": 3.712236771583557,
+      "reference_mmd2": 0.0007644891738891602,
+      "reference_doubling_endpoint_mse": 1.8399930190593494e-10,
+      "measurements": [
+        {
+          "solver": "euler",
+          "nfe": 16,
+          "mmd2": 0.0008507966995239258,
+          "endpoint_mse_to_reference": 0.007316993083804846,
+          "integration_seconds": 0.021966588000168485
+        },
+        {
+          "solver": "rk4",
+          "nfe": 16,
+          "mmd2": 0.001542806625366211,
+          "endpoint_mse_to_reference": 0.06344003230333328,
+          "integration_seconds": 0.022792009999875518
+        },
+        {
+          "solver": "euler",
+          "nfe": 32,
+          "mmd2": 0.0006918907165527344,
+          "endpoint_mse_to_reference": 0.004026867914944887,
+          "integration_seconds": 0.039266832999828694
+        },
+        {
+          "solver": "rk4",
+          "nfe": 32,
+          "mmd2": 0.0007117986679077148,
+          "endpoint_mse_to_reference": 0.0023296899162232876,
+          "integration_seconds": 0.03786311699991529
+        },
+        {
+          "solver": "euler",
+          "nfe": 48,
+          "mmd2": 0.000766754150390625,
+          "endpoint_mse_to_reference": 0.0009401807328686118,
+          "integration_seconds": 0.0643973169999299
+        },
+        {
+          "solver": "rk4",
+          "nfe": 48,
+          "mmd2": 0.0008779764175415039,
+          "endpoint_mse_to_reference": 0.00718874204903841,
+          "integration_seconds": 0.055468823000182965
+        },
+        {
+          "solver": "euler",
+          "nfe": 96,
+          "mmd2": 0.0007734298706054688,
+          "endpoint_mse_to_reference": 0.0004958503413945436,
+          "integration_seconds": 0.10784733400009827
+        },
+        {
+          "solver": "rk4",
+          "nfe": 96,
+          "mmd2": 0.0007492303848266602,
+          "endpoint_mse_to_reference": 0.0011362669756636024,
+          "integration_seconds": 0.11072377000004963
+        },
+        {
+          "solver": "euler",
+          "nfe": 192,
+          "mmd2": 0.0007590055465698242,
+          "endpoint_mse_to_reference": 0.00012007645273115486,
+          "integration_seconds": 0.21567295700015165
+        },
+        {
+          "solver": "rk4",
+          "nfe": 192,
+          "mmd2": 0.0007810592651367188,
+          "endpoint_mse_to_reference": 0.0005459993844851851,
+          "integration_seconds": 0.2375366579999536
+        },
+        {
+          "solver": "euler",
+          "nfe": 384,
+          "mmd2": 0.0007605552673339844,
+          "endpoint_mse_to_reference": 2.732967186602764e-05,
+          "integration_seconds": 0.43316653400006544
+        },
+        {
+          "solver": "rk4",
+          "nfe": 384,
+          "mmd2": 0.0007557868957519531,
+          "endpoint_mse_to_reference": 0.0002625824708957225,
+          "integration_seconds": 0.46172752400002537
+        }
+      ]
+    }
+  ]
+}
