@@ -12,6 +12,7 @@ from flow_matching.metrics import squared_mmd_rbf
 from flow_matching.models import VectorFieldMLP
 from flow_matching.solvers import euler_integrate, rk4_integrate
 from flow_matching.training import TrainConfig, train_flow
+from flow_matching.statistics import paired_bootstrap_ci
 
 
 def summarize(values: list[float]) -> dict[str, float]:
@@ -67,6 +68,7 @@ def main() -> None:
             "euler_mmd2": summarize(euler_values),
             "rk4_mmd2": summarize(rk4_values),
             "paired_rk4_minus_euler": summarize(deltas),
+            "paired_rk4_minus_euler_ci": paired_bootstrap_ci(deltas),
         },
         "warning": "Synthetic 2-D study; lower MMD^2 is better. Interpret solver differences across seeds, not from one run.",
     }
