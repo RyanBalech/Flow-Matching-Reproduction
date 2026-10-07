@@ -13,6 +13,7 @@ from flow_matching.models import VectorFieldMLP
 from flow_matching.paths import LinearConditionalPath, TrigonometricConditionalPath
 from flow_matching.solvers import rk4_integrate
 from flow_matching.training import TrainConfig, train_flow
+from flow_matching.statistics import paired_bootstrap_ci
 
 
 def summary(values: list[float]) -> dict[str, float]:
@@ -75,6 +76,7 @@ def main() -> None:
             "linear_mmd2": summary(linear),
             "variance_preserving_mmd2": summary(vp),
             "paired_vp_minus_linear_mmd2": summary(delta),
+            "paired_vp_minus_linear_mmd2_ci": paired_bootstrap_ci(delta),
         },
         "interpretation": (
             "Negative paired differences favor the variance-preserving path; positive "
