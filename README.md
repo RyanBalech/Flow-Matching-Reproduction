@@ -27,9 +27,9 @@ At generation time, samples are drawn from the base distribution and transported
 - [x] Reproducible synthetic distributions
 - [x] Unit tests and CI
 - [ ] Reproduce 2-D transport experiments
-- [ ] OT-style vs diffusion-style path ablation
-- [ ] Solver / NFE ablation
-- [ ] Statistical comparison across seeds
+- [x] Linear vs variance-preserving path ablation pipeline
+- [x] Matched-NFE Euler vs RK4 ablation pipeline
+- [x] Multi-seed paired comparison pipelines
 - [ ] Research report with figures and failure analysis
 
 ## Reproducibility
@@ -40,3 +40,13 @@ Experiments use explicit seeds and save configuration with metrics. Headline com
 
 - Yaron Lipman et al. *Flow Matching for Generative Modeling*. ICLR 2023.
 - Meta FAIR. *Flow Matching Guide and Code*. 2024. Used as a conceptual/correctness reference, not copied implementation.
+
+
+## Implemented ablations
+
+Two controlled studies are now implemented:
+
+- **Probability path:** straight linear transport versus a variance-preserving trigonometric path, with the same architecture, optimizer, training steps, seeds, evaluation samples, and RK4 inference budget.
+- **ODE solver:** Euler at 50 function evaluations versus RK4 at 48 function evaluations, evaluated on the same trained model and paired samples across five seeds.
+
+Both studies write per-seed metrics and paired differences to JSON. Numerical conclusions remain intentionally separate from implementation status until the reproducible runs complete.
